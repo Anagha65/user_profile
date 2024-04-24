@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+
+<!-- Projects Start -->
+    <div class="container-xxl py-6 pt-5" id="project">
+        <div class="container">
+            <div class="row g-5 mb-5 align-items-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <h1 class="display-5 mb-0">My Projects</h1>
+                </div>
+
+            </div>
+            <div class="row g-4 portfolio-container wow fadeInUp {{ forloop.counter }}" data-wow-delay="0.1s">
+                {% for project in projects %}
+                <div class="col-lg-4 col-md-6 portfolio-item first">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="{{ project.image.url }}" alt="">
+                        <div class="portfolio-btn">
+                             <h5 class="display-5 mb-0">{{ project.title }}</h5>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="{% url 'project_detail' project.id %}"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 {% endfor %}
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Projects End -->
+
+
+
+
+
+
+{% endblock %}

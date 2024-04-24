@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+
+ <!-- About Start -->
+    <div class="container-xxl py-6" id="about">
+        <div class="container">
+            <div class="row g-5">
+
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="d-flex align-items-center mb-5">
+                        <div class="years flex-shrink-0 text-center me-4">
+
+                            <h1>  {{ project.title }}</h1>
+
+                        </div>
+
+                    </div>
+                    <p class="mb-0" align="justify">{{ project.description }} </p>
+                     <a href="{{ project.link }}" class="btn btn-primary py-3 px-5 mt-3">Project Link</a>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-12">
+                            <img class="img-fluid rounded" src="{{ project.image.url }}" alt="">
+                        </div>
+<!--                        <div class="col-sm-6">-->
+<!--                            <img class="img-fluid rounded" src="{% static 'assets/img/about-2.jpg' %}" alt="">-->
+<!--                        </div>-->
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+
+{% endblock%}

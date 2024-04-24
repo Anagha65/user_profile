@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top shadow py-lg-0 px-4 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="text-primary fw-bold m-0">ProMan</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between py-4 py-lg-0" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href=" " class="nav-item nav-link active">Home</a>
+                <a href="/list_work/" class="nav-item nav-link">Work Experience</a>
+                <a href="/list_edu/" class="nav-item nav-link">Education</a>
+
+            </div>
+            <a href="index.html" class="navbar-brand bg-secondary py-3 px-4 mx-3 d-none d-lg-block">
+                <h1 class="text-primary fw-bold m-0">ProMan</h1>
+            </a>
+            <div class="navbar-nav me-auto py-0">
+                <a href="/project_list/" class="nav-item nav-link">Projects</a>
+                <a href="list_certificate/" class="nav-item nav-link">Certifications</a>
+<!--                <a href="#testimonial" class="nav-item nav-link">Testimonial</a>-->
+<!--                <a href="#contact" class="nav-item nav-link">Contact</a>-->
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+
+ <!-- About Start -->
+    <div class="container-xxl py-6" id="about">
+        <div class="container">
+             {% for profile in profiles %}
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="d-flex align-items-center mb-5">
+                        <div class="years flex-shrink-0 text-center me-4">
+
+                            <h1> {{ profile.name }} </h1>
+                            <h1 class="display-1 mb-0">{{ profile.exp_year }}</h1>
+                            <h5 class="mb-0"> Year</h5>
+                        </div>
+                        <h3 class="lh-base mb-0"> of Experience as a <br>{{ profile.designation }} </h3>
+                    </div>
+                    <p class="mb-0" align="justify"> {{ profile.bio }}</p><br><br>
+
+
+
+
+                   <h2 class="text-primary fw-bold mb-0">My Skills</h2><br>
+                    <h5 class="mb-3"> {{ profile.skills }}</h5>
+
+                    <div class=" align-items-center mb-3">
+                        <h2 class="text-primary fw-bold mb-0"  >Email</h2><br>
+                        <h5 class="lh-base mb-0">{{ profile.email}}</h5>
+
+                    </div>
+
+                    <div class="  align-items-center mb-3">
+                        <h2 class="text-primary fw-bold mb-0"  >Contact</h2><br>
+                        <h5 class="lh-base mb-0">{{ profile.contact }}</h5>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-12">
+                            <img class="img-fluid rounded" src="{{ profile.image.url }}" alt="">
+                        </div>
+<!--                        <div class="col-sm-6">-->
+<!--                            <img class="img-fluid rounded" src="{% static 'assets/img/about-2.jpg' %}" alt="">-->
+<!--                        </div>-->
+                    </div>
+
+
+                </div>
+            </div>
+             {% endfor %}
+        </div>
+    </div>
+    <!-- About End -->
+
+
+
+
+
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--         <th scope="col">Sl.No</th>-->
+<!--      <th scope="col">USER Name</th>-->
+<!--      <th scope="col">Exp.Year</th>-->
+
+<!--       <th scope="col">Contact</th>-->
+
+
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--     {% for profile in profiles %}-->
+<!--    <tr>-->
+<!--        <th scope="row">{{ forloop.counter }}</th>-->
+<!--    <td>{{ profile.name }}</td>-->
+<!--      <td>{{ profile.exp_year}}</td>-->
+
+<!--     <td>{{ profile.contact}}</td>-->
+<!--        <td><a href="{% url 'details' profile.id %}" class="btn btn-primary">Details</a></td>-->
+<!--        <td><a href="{% url 'update' profile.id %}"  class="btn btn-success">Update</a></td>-->
+<!--        <td><a href="{% url 'delete' profile.id %}"  class="btn btn-warning">Delete</a></td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+
+
+<!--   {% for work_experience in work_experiences %}-->
+<!--            <li>{{ work_experience.company_name }}</li>-->
+
+<!--          <li>{{ work_experience.position}}</li>-->
+<!--        {% endfor %}-->
+
+
+
+
+
+<!--  </tbody>-->
+<!--</table>-->
+
+
+
+
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--         <th scope="col">Sl.No</th>-->
+<!--      <th scope="col">USER Name</th>-->
+<!--      <th scope="col">Exp.Year</th>-->
+
+<!--       <th scope="col">Contact</th>-->
+
+
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--             {% for work_experience in work_experiences %}-->
+
+<!--    <tr>-->
+<!--        <th scope="row">{{ forloop.counter }}</th>-->
+<!--    <td>{{ work_experience.company_name }}</td>-->
+<!--      <td>{{ work_experience.position}}</td>-->
+
+<!--     <td>{{ profile.start_date}}</td>-->
+<!--        <td><a href="{% url 'details' work_experience.id %}" class="btn btn-primary">Details</a></td>-->
+<!--        <td><a href="{% url 'update' work_experience.id %}"  class="btn btn-success">Update</a></td>-->
+<!--        <td><a href="{% url 'delete' work_experience.id %}"  class="btn btn-warning">Delete</a></td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+
+
+<!--  </tbody>-->
+<!--</table>-->
+
+
+
+
+
+<!-- {% for profile in profiles %}-->
+
+<!-- {{ profile.user }}-->
+<!-- {{ profile.bio }}-->
+
+
+
+<!-- {% endfor %}-->
+
+{% endblock %}
